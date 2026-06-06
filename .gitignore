@@ -1,0 +1,65 @@
+# =========================
+# Build directories
+# =========================
+build/
+cmake-build-debug/
+cmake-build-release/
+out/
+bin/
+lib/
+
+# =========================
+# CMake generated files
+# =========================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+CTestTestfile.cmake
+install_manifest.txt
+
+# =========================
+# Object / binary files
+# =========================
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+*.out
+*.app
+
+# =========================
+# Debug / profiling
+# =========================
+*.dSYM/
+*.gcda
+*.gcno
+*.prof
+*.gprof
+
+# =========================
+# Editor files (VS Code)
+# =========================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs / temp
+# =========================
+*.log
+*.tmp
+*.swp
+*~
