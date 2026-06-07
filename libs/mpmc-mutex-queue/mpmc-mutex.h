@@ -13,6 +13,7 @@ class MPMC_Mutex{
         (Capacity & (Capacity - 1)) == 0,
         "Capacity must be power of 2"
     );
+    _buffer.resize(Capacity);
 public:
     bool push(T val){
         {
