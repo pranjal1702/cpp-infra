@@ -1,4 +1,4 @@
-#include "mpmc-mutex-queue/mpmc-mutex.h"
+#include "mpmc/mpmc_mutex.h"
 #include<cstdint>
 #include <functional>
 #include <future>
@@ -44,12 +44,12 @@ public:
             std::lock_guard<std::mutex> lock(_mtx);
             if (_stop)
                 throw std::runtime_error("pool stopped");
+        }
             res = _queue.push(
                 [packaged_task_shared_ptr]() mutable {
-                    (packaged_task_shared_ptr)();
+                    (*packaged_task_shared_ptr)();
                 }
             );
-        }
         // if queue is not empty then what to return, how to handle this fail push
         if(!res){
             throw queue_full_error(Queue_Size);
@@ -72,6 +72,7 @@ public:
             }
         }
     }
+
 private:
     mpmc::MPMC_Mutex<std::function<void()>,Queue_Size> _queue;
     std::vector<std::thread> _workers;

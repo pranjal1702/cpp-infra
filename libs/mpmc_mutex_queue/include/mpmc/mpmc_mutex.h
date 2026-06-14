@@ -13,7 +13,6 @@ class MPMC_Mutex{
         (Capacity & (Capacity - 1)) == 0,
         "Capacity must be power of 2"
     );
-    _buffer.resize(Capacity);
 public:
     bool push(T val){
         {
@@ -50,7 +49,7 @@ private:
     size_t _head=0;
     size_t _tail=0;
     size_t _count=0;
-    std::mutex _mtx;
+    mutable std::mutex _mtx;
 };
 
 
